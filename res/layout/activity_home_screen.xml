@@ -26,7 +26,8 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:text="@string/login_home"
-            android:textColor="#201e1e" />
+            android:textColor="#201e1e" 
+            android:onClick="fblogin" />
 
         <TextView
             android:id="@+id/have_account"
