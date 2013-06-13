@@ -20,7 +20,7 @@ public class SplashScreenActivity extends Activity {
 		handler.postDelayed(new Runnable() {
 			public void run() {
 				// Starts the About Screen Activity
-				startActivity(new Intent(SplashScreenActivity.this, HomeScreenActivity.class));
+				startActivity(new Intent(SplashScreenActivity.this, FBLoginActivity.class));
 			}
 		}, 3000L);
 	}
