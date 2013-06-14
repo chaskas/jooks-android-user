@@ -43,6 +43,14 @@
 	    android:text="Welcome, you are now logged in."
 	    android:textColor="#F6F0BC"
 	    android:textSize="18sp" />
+	
+	<com.facebook.widget.LoginButton
+            android:id="@+id/logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            facebook:confirm_logout="false"
+            facebook:fetch_user_info="true" />
 
     </LinearLayout>
 
