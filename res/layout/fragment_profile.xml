@@ -3,52 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F0310"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FCFEEE"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".HomeScreenActivity" >
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:gravity="center_vertical|center_horizontal"
+        android:layout_weight="1"
+        android:background="#D94B26"
+        android:gravity="left|center_vertical"
         android:orientation="vertical" >
 
         <ImageView
-            android:id="@+id/logo_home"
+            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/logo_content_description"
-            android:src="@drawable/jooks_title" />
+            android:src="@drawable/jooks_logo_header" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_vertical|center_horizontal"
+        android:layout_weight="9"
+        android:gravity="bottom|center_horizontal"
         android:orientation="vertical" >
-
-	<TextView
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center"
-	    android:layout_marginLeft="10dp"
-	    android:text="Welcome, you are now logged in."
-	    android:textColor="#F6F0BC"
-	    android:textSize="18sp" />
-	
-	<com.facebook.widget.LoginButton
-            android:id="@+id/logout_button"
+        
+        <com.facebook.widget.LoginButton
+            android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
             facebook:confirm_logout="false"
             facebook:fetch_user_info="true" />
 
