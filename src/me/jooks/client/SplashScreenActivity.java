@@ -1,8 +1,10 @@
 package me.jooks.client;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class SplashScreenActivity extends Activity {
 
@@ -15,13 +17,13 @@ public class SplashScreenActivity extends Activity {
 
 		// Generates a Handler to launch the About Screen
 		// after 2 seconds
-//		final Handler handler = new Handler();
-//		handler.postDelayed(new Runnable() {
-//			public void run() {
-//				// Starts the About Screen Activity
-//				startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
-//			}
-//		}, 3000L);
+		final Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			public void run() {
+				// Starts the About Screen Activity
+				startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
+			}
+		}, 2000L);
 	}
 
 	public void onConfigurationChanged(Configuration newConfig) {
