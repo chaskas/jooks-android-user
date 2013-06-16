@@ -10,8 +10,14 @@
     <string name="login_home">Entrar</string>
     <string name="signup_home">Registrarse</string>
     <string name="app_id">169697439861141</string>
-    <string name="title_activity_fblogin">FBLoginActivity</string>
+    
+    <string name="title_activity_fblogin">Jooks</string>
     <string name="title_activity_fblogin_fragment">FBLoginFragment</string>
     <string name="title_activity_profile">Profile</string>
 
+
+    <string name="dummy_section_text">Section %1d is just a dummy section.</string>
+    <string name="demo_external_activity">Demo External Activity</string>
+    <string name="demo_collection">Demo Collection</string>
+    
 </resources>

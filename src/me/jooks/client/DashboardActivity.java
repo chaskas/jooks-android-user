@@ -1,12 +1,11 @@
 package me.jooks.client;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -16,17 +15,23 @@ public class DashboardActivity extends FragmentActivity {
 
 	private static final int FBLOGIN = 0;
 	private static final int PROFILE = 1;
-	private static final int SETTINGS = 2;
-	private static final int FRAGMENT_COUNT = SETTINGS +1;
+	private static final int FRAGMENT_COUNT = PROFILE +1;
 
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	
 	private boolean isResumed = false;
 	
+	private ActionBar actionBar = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
+	    
+	    overridePendingTransition(0, 0);
 
+	    actionBar = getActionBar();
+	    actionBar.hide();
+	    
 	    uiHelper = new UiLifecycleHelper(this, callback);
 	    uiHelper.onCreate(savedInstanceState);
 	    
@@ -35,9 +40,8 @@ public class DashboardActivity extends FragmentActivity {
 	    FragmentManager fm = getSupportFragmentManager();
 	    fragments[FBLOGIN] = fm.findFragmentById(R.id.FBLoginFragment);
 	    fragments[PROFILE] = fm.findFragmentById(R.id.ProfileFragment);
-	    fragments[SETTINGS] = fm.findFragmentById(R.id.UserSettingsFragment);
 	    
-	    FragmentTransaction transaction = fm.beginTransaction();
+	    android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
 	    for(int i = 0; i < fragments.length; i++) {
 	        transaction.hide(fragments[i]);
 	    }
@@ -46,7 +50,7 @@ public class DashboardActivity extends FragmentActivity {
 	
 	private void showFragment(int fragmentIndex, boolean addToBackStack) {
 	    FragmentManager fm = getSupportFragmentManager();
-	    FragmentTransaction transaction = fm.beginTransaction();
+	    android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
 	    for (int i = 0; i < fragments.length; i++) {
 	        if (i == fragmentIndex) {
 	            transaction.show(fragments[i]);
@@ -87,10 +91,12 @@ public class DashboardActivity extends FragmentActivity {
 	        if (state.isOpened()) {
 	            // If the session state is open:
 	            // Show the authenticated fragment
+	        	actionBar.show();
 	            showFragment(PROFILE, false);
 	        } else if (state.isClosed()) {
 	            // If the session state is closed:
 	            // Show the login fragment
+	        	actionBar.hide();
 	            showFragment(FBLOGIN, false);
 	        }
 	    }
@@ -109,6 +115,7 @@ public class DashboardActivity extends FragmentActivity {
 	        // otherwise present the splash screen
 	        // and ask the person to login.
 	        showFragment(FBLOGIN, false);
+	        
 	    }
 	}
 	
@@ -138,15 +145,6 @@ public class DashboardActivity extends FragmentActivity {
 	protected void onSaveInstanceState(Bundle outState) {
 	    super.onSaveInstanceState(outState);
 	    uiHelper.onSaveInstanceState(outState);
-	}
-	
-	public boolean showSettings(View view) {
-	    
-	    if (fragments[PROFILE].isVisible()) {
-	        showFragment(SETTINGS, true);
-	        return true;
-	    }
-	    return false;
 	}
 
 }

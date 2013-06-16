@@ -9,6 +9,7 @@ import android.os.Handler;
 public class SplashScreenActivity extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 
 		// Sets the Splash Screen Layout
@@ -16,13 +17,13 @@ public class SplashScreenActivity extends Activity {
 
 		// Generates a Handler to launch the About Screen
 		// after 2 seconds
-		final Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
-			public void run() {
-				// Starts the About Screen Activity
-				startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
-			}
-		}, 3000L);
+//		final Handler handler = new Handler();
+//		handler.postDelayed(new Runnable() {
+//			public void run() {
+//				// Starts the About Screen Activity
+//				startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
+//			}
+//		}, 3000L);
 	}
 
 	public void onConfigurationChanged(Configuration newConfig) {
