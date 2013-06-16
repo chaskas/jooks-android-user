@@ -1,35 +1,54 @@
 package me.jooks.client;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 
-public class SplashScreenActivity extends Activity {
-
+public class SplashScreenActivity extends FragmentActivity {
+	
+	private FBLoginFragment FBLoginFragment;
+	
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
-		super.onCreate(savedInstanceState);
+	    super.onCreate(savedInstanceState);
 
-		// Sets the Splash Screen Layout
-		setContentView(R.layout.activity_splash_screen);
-
-		// Generates a Handler to launch the About Screen
-		// after 2 seconds
-		final Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
-			public void run() {
-				// Starts the About Screen Activity
-				startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
-			}
-		}, 2000L);
+	    if (savedInstanceState == null) {
+	        // Add the fragment on initial activity setup
+	    	FBLoginFragment = new FBLoginFragment();
+	        getSupportFragmentManager()
+	        .beginTransaction()
+	        .add(android.R.id.content, FBLoginFragment)
+	        .commit();
+	    } else {
+	        // Or set the fragment from restored state info
+	    	FBLoginFragment = (FBLoginFragment) getSupportFragmentManager()
+	        .findFragmentById(android.R.id.content);
+	    }
 	}
 
-	public void onConfigurationChanged(Configuration newConfig) {
-		// Manages auto rotation for the Splash Screen Layout
-		super.onConfigurationChanged(newConfig);
-		setContentView(R.layout.activity_splash_screen);
-	}
+//	public void onCreate(Bundle savedInstanceState) {
+//		
+//		super.onCreate(savedInstanceState);
+//
+//		// Sets the Splash Screen Layout
+//		setContentView(R.layout.activity_splash_screen);
+//
+//		// Generates a Handler to launch the About Screen
+//		// after 2 seconds
+//		final Handler handler = new Handler();
+//		handler.postDelayed(new Runnable() {
+//			public void run() {
+//				// Starts the About Screen Activity
+//				startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
+//			}
+//		}, 2000L);
+//		
+//
+//	}
+//
+//	public void onConfigurationChanged(Configuration newConfig) {
+//		// Manages auto rotation for the Splash Screen Layout
+//		super.onConfigurationChanged(newConfig);
+//		setContentView(R.layout.activity_splash_screen);
+//	}
 
 }

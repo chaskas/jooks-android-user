@@ -21,7 +21,7 @@ public class ProfileFragment extends Fragment  {
 //        mTabHost.addTab(mTabHost.newTabSpec("contacts").setIndicator("Contacts"), LoaderCursorSupport.CursorLoaderListFragment.class, null);
 //
 //		return mTabHost;
-		View view = inflater.inflate(R.layout.fragment_fblogin, container, false);
+		View view = inflater.inflate(R.layout.fragment_profile, container, false);
 	    return view;
 
 	}

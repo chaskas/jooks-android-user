@@ -16,12 +16,12 @@
         android:contentDescription="@string/logo_content_description"
         android:src="@drawable/jooks_title" />
     
-    <!-- <com.facebook.widget.LoginButton
+    <com.facebook.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         facebook:confirm_logout="true"
-        facebook:fetch_user_info="true" /> -->
+        facebook:fetch_user_info="true" />
 
 </LinearLayout>
