@@ -30,7 +30,8 @@ public class DashboardActivity extends FragmentActivity {
 	    overridePendingTransition(0, 0);
 
 	    actionBar = getActionBar();
-	    actionBar.hide();
+	    
+	    if(actionBar.isShowing())actionBar.hide();
 	    
 	    uiHelper = new UiLifecycleHelper(this, callback);
 	    uiHelper.onCreate(savedInstanceState);
@@ -91,12 +92,12 @@ public class DashboardActivity extends FragmentActivity {
 	        if (state.isOpened()) {
 	            // If the session state is open:
 	            // Show the authenticated fragment
-	        	actionBar.show();
+	        	if(!actionBar.isShowing())actionBar.show();
 	            showFragment(PROFILE, false);
 	        } else if (state.isClosed()) {
 	            // If the session state is closed:
 	            // Show the login fragment
-	        	actionBar.hide();
+	        	if(!actionBar.isShowing())actionBar.hide();
 	            showFragment(FBLOGIN, false);
 	        }
 	    }
