@@ -69,8 +69,16 @@ int drawable com_facebook_usersettingsfragment_background_gradient 0x7f02001e
 int drawable ic_launcher 0x7f02001f
 int drawable jooks_logo_header 0x7f020020
 int drawable jooks_title 0x7f020021
+int drawable sample_0 0x7f020022
+int drawable sample_1 0x7f020023
+int drawable sample_2 0x7f020024
+int drawable sample_3 0x7f020025
+int drawable sample_4 0x7f020026
+int drawable sample_5 0x7f020027
+int drawable sample_6 0x7f020028
+int drawable sample_7 0x7f020029
 int id LinearLayout1 0x7f040004
-int id action_settings 0x7f04001c
+int id action_settings 0x7f04001d
 int id com_facebook_login_activity_progress_bar 0x7f040009
 int id com_facebook_picker_activity_circle 0x7f040008
 int id com_facebook_picker_checkbox 0x7f04000b
@@ -96,6 +104,7 @@ int id logo 0x7f040005
 int id normal 0x7f040001
 int id pager 0x7f040003
 int id picker_subtitle 0x7f040018
+int id places 0x7f04001c
 int id search_box 0x7f040017
 int id small 0x7f040000
 int layout activity_dashboard 0x7f030000
@@ -113,7 +122,8 @@ int layout com_facebook_picker_title_bar_stub 0x7f03000b
 int layout com_facebook_placepickerfragment 0x7f03000c
 int layout com_facebook_placepickerfragment_list_row 0x7f03000d
 int layout com_facebook_usersettingsfragment 0x7f03000e
-int layout fragment_profile 0x7f03000f
+int layout fragment_places 0x7f03000f
+int layout fragment_profile 0x7f030010
 int menu fblogin 0x7f090000
 int menu profile 0x7f090001
 int menu splash_screen 0x7f090002

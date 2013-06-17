@@ -132,7 +132,7 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
         public Fragment getItem(int i) {
             switch (i) {
                 case 0:
-                    return new ProfileFragment();
+                    return new PlacesFragment();
                     
                 case 1:
                     return new ProfileFragment();

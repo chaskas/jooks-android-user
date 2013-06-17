@@ -214,10 +214,18 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02001f;
         public static final int jooks_logo_header=0x7f020020;
         public static final int jooks_title=0x7f020021;
+        public static final int sample_0=0x7f020022;
+        public static final int sample_1=0x7f020023;
+        public static final int sample_2=0x7f020024;
+        public static final int sample_3=0x7f020025;
+        public static final int sample_4=0x7f020026;
+        public static final int sample_5=0x7f020027;
+        public static final int sample_6=0x7f020028;
+        public static final int sample_7=0x7f020029;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f040004;
-        public static final int action_settings=0x7f04001c;
+        public static final int action_settings=0x7f04001d;
         public static final int com_facebook_login_activity_progress_bar=0x7f040009;
         public static final int com_facebook_picker_activity_circle=0x7f040008;
         public static final int com_facebook_picker_checkbox=0x7f04000b;
@@ -243,6 +251,7 @@ containing a value of this type.
         public static final int normal=0x7f040001;
         public static final int pager=0x7f040003;
         public static final int picker_subtitle=0x7f040018;
+        public static final int places=0x7f04001c;
         public static final int search_box=0x7f040017;
         public static final int small=0x7f040000;
     }
@@ -262,7 +271,8 @@ containing a value of this type.
         public static final int com_facebook_placepickerfragment=0x7f03000c;
         public static final int com_facebook_placepickerfragment_list_row=0x7f03000d;
         public static final int com_facebook_usersettingsfragment=0x7f03000e;
-        public static final int fragment_profile=0x7f03000f;
+        public static final int fragment_places=0x7f03000f;
+        public static final int fragment_profile=0x7f030010;
     }
     public static final class menu {
         public static final int fblogin=0x7f090000;
