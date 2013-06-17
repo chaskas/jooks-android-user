@@ -9,27 +9,18 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 
 public class DashboardActivity extends FragmentActivity implements ActionBar.TabListener {
-
-	private static final int FBLOGIN = 0;
-	private static final int PROFILE = 1;
-	private static final int FRAGMENT_COUNT = PROFILE +1;
-
-	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	
 	private boolean isResumed = false;
 	
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
     ViewPager mViewPager;
+	private UiLifecycleHelper uiHelper;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,17 +30,6 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
 	    uiHelper.onCreate(savedInstanceState);
 	    
 	    setContentView(R.layout.activity_dashboard);
-
-//	    FragmentManager fm = getSupportFragmentManager();
-//	    fragments[FBLOGIN] = fm.findFragmentById(R.id.FBLoginFragment);
-//	    fragments[PROFILE] = fm.findFragmentById(R.id.ProfileFragment);
-//	    
-//	    android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
-//	    for(int i = 0; i < fragments.length; i++) {
-//	        transaction.hide(fragments[i]);
-//	    }
-//	    transaction.commit();
-	    
 
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
 
@@ -72,22 +52,7 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
         actionBar.addTab(actionBar.newTab().setText("Amigos").setTabListener(this));
         
 	}
-	
-//	private void showFragment(int fragmentIndex, boolean addToBackStack) {
-//	    FragmentManager fm = getSupportFragmentManager();
-//	    android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
-//	    for (int i = 0; i < fragments.length; i++) {
-//	        if (i == fragmentIndex) {
-//	            transaction.show(fragments[i]);
-//	        } else {
-//	            transaction.hide(fragments[i]);
-//	        }
-//	    }
-//	    if (addToBackStack) {
-//	        transaction.addToBackStack(null);
-//	    }
-//	    transaction.commit();
-//	}
+
 	
 	@Override
 	public void onResume() {
@@ -106,45 +71,18 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 	    // Only make changes if the activity is visible
 	    if (isResumed) {
-	        FragmentManager manager = getSupportFragmentManager();
-	        // Get the number of entries in the back stack
-	        int backStackSize = manager.getBackStackEntryCount();
-	        // Clear the back stack
-	        for (int i = 0; i < backStackSize; i++) {
-	            manager.popBackStack();
-	        }
-	        if (state.isOpened()) {
-	            // If the session state is open:
-	            // Show the authenticated fragment
-//	        	if(!actionBar.isShowing())actionBar.show();
-//	            showFragment(PROFILE, false);
-	        } else if (state.isClosed()) {
+	        if (state.isClosed()) {
 	            // If the session state is closed:
 	            // Show the login fragment
-//	        	if(!actionBar.isShowing())actionBar.hide();
-//	            showFragment(FBLOGIN, false);
+	        	Intent intent = new Intent(this, SplashScreenActivity.class);
+	        	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	        	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		        startActivity(intent);
+		        finish();
 	        }
 	    }
 	}
 	
-	@Override
-	protected void onResumeFragments() {
-	    super.onResumeFragments();
-	    Session session = Session.getActiveSession();
-
-	    if (session != null && session.isOpened()) {
-	        // if the session is already open,
-	        // try to show the selection fragment
-	        //showFragment(PROFILE, false);
-	    } else {
-	        // otherwise present the splash screen
-	        // and ask the person to login.
-	        //showFragment(FBLOGIN, false);
-	        
-	    }
-	}
-	
-	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = 
 	    new Session.StatusCallback() {
 	    @Override
@@ -194,7 +132,7 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
         public Fragment getItem(int i) {
             switch (i) {
                 case 0:
-                    return new FBLoginFragment();
+                    return new ProfileFragment();
                     
                 case 1:
                     return new ProfileFragment();
@@ -214,6 +152,11 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
         public CharSequence getPageTitle(int position) {
             return "Section " + (position + 1);
         }
+    }
+    
+    @Override
+    public void onBackPressed(){
+    	//this.finish();
     }
 
 }

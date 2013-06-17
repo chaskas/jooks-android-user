@@ -42,7 +42,10 @@ public class FBLoginFragment extends Fragment {
 	    if (state.isOpened()) {
 	        Log.i(TAG, "Logged in...");
 	        
-	        
+	        Intent intent = new Intent(getActivity(), DashboardActivity.class);
+	        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	        startActivity(intent);
 	        
 	    } else if (state.isClosed()) {
 	        Log.i(TAG, "Logged out...");
@@ -92,15 +95,5 @@ public class FBLoginFragment extends Fragment {
 	    super.onSaveInstanceState(outState);
 	    uiHelper.onSaveInstanceState(outState);
 	}
-	
-//	@Override
-//	public View onCreateView(LayoutInflater inflater, 
-//	        ViewGroup container, Bundle savedInstanceState) {
-//		
-//	    View view = inflater.inflate(R.layout.fragment_fblogin, container, false);
-//	    return view;
-//	}
-	
-
 
 }
