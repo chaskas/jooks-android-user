@@ -1,5 +1,7 @@
 package me.jooks.client;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -37,19 +39,19 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
 
         actionBar.setHomeButtonEnabled(false);
 
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mAppSectionsPagerAdapter);
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
+                //actionBar.setSelectedNavigationItem(position);
             }
         });
         
-        actionBar.addTab(actionBar.newTab().setText("Locales").setTabListener(this));
-        actionBar.addTab(actionBar.newTab().setText("Amigos").setTabListener(this));
+        //actionBar.addTab(actionBar.newTab().setText("Locales").setTabListener(this));
+        //actionBar.addTab(actionBar.newTab().setText("Amigos").setTabListener(this));
         
 	}
 
@@ -150,7 +152,8 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Section " + (position + 1);
+        	String[] sections = { "Locales", "Amigos" };
+            return sections[position];
         }
     }
     

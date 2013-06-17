@@ -1,5 +1,6 @@
 package me.jooks.client;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -30,5 +31,25 @@ public class PlacesFragment extends Fragment {
 	    return view;
 
 	}
+	
+	@Override
+    public void onConfigurationChanged(Configuration newConfig){
+        
+		GridView gridview = (GridView) getView().findViewById(R.id.places);
+		
+//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//        
+//        	GridView gridview = (GridView) getView().findViewById(R.id.places);
+//        	gridview.setNumColumns(3);
+//        	
+//        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+//        	GridView gridview = (GridView) getView().findViewById(R.id.places);
+//        	gridview.setNumColumns(3);
+//        }
+        
+        gridview.setNumColumns(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? 3 : 2);
+        
+        super.onConfigurationChanged(newConfig);
+    }
 	
 }

@@ -1,59 +1,79 @@
 package me.jooks.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-public class ImageAdapter extends BaseAdapter {
-    private Context mContext;
+class ImageAdapter extends BaseAdapter {
+    private List<Item> items = new ArrayList<Item>();
+    private LayoutInflater inflater;
 
-    public ImageAdapter(Context c) {
-        mContext = c;
+    public ImageAdapter(Context context) {
+        inflater = LayoutInflater.from(context);
+
+        items.add(new Item("Copi Copi",       R.drawable.sample_0));
+        items.add(new Item("Tepo Tepo",   R.drawable.sample_1));
+        items.add(new Item("Cortachurro", R.drawable.sample_2));
+        items.add(new Item("James Bond",      R.drawable.sample_3));
+        items.add(new Item("Rucia",     R.drawable.sample_4));
+        items.add(new Item("Cabeza de Chaya",      R.drawable.sample_5));
+        items.add(new Item("Fierro Malo",      R.drawable.sample_6));
+        items.add(new Item("Yo no fui",      R.drawable.sample_7));
     }
 
+    @Override
     public int getCount() {
-        return mThumbIds.length;
+        return items.size();
     }
 
-    public Object getItem(int position) {
-        return null;
+    @Override
+    public Object getItem(int i) {
+        return items.get(i);
     }
 
-    public long getItemId(int position) {
-        return 0;
+    @Override
+    public long getItemId(int i) {
+        return items.get(i).drawableId;
     }
 
-    // create a new ImageView for each item referenced by the Adapter
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-        if (convertView == null) {  // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(parent.getWidth()/2 - 4, parent.getHeight()/2 -4));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(2, 2, 2, 2);
-        } else {
-            imageView = (ImageView) convertView;
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View v = view;
+        ImageView picture;
+        TextView name;
+
+        if(v == null) {
+            v = inflater.inflate(R.layout.item_places, viewGroup, false);
+            v.setTag(R.id.logoPlace, v.findViewById(R.id.logoPlace));
+            v.setTag(R.id.textPlace, v.findViewById(R.id.textPlace));
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        picture = (ImageView)v.getTag(R.id.logoPlace);
+        name = (TextView)v.getTag(R.id.textPlace);
+
+        Item item = (Item)getItem(i);
+
+        picture.setImageResource(item.drawableId);
+        name.setText(item.name);
+
+        return v;
     }
 
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
-    };
+    private class Item {
+        final String name;
+        final int drawableId;
+
+        Item(String name, int drawableId) {
+            this.name = name;
+            this.drawableId = drawableId;
+        }
+    }
+    
 }
