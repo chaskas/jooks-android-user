@@ -61,7 +61,9 @@ class ImageAdapter extends BaseAdapter {
         Item item = (Item)getItem(i);
 
         picture.setImageResource(item.drawableId);
+        //picture.setPadding(2, 2, 2, 2);
         name.setText(item.name);
+        //name.setPadding(2, 2, 2, 2);
 
         return v;
     }

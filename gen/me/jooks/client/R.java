@@ -156,6 +156,9 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_connected_shadow_color=0x7f060002;
         public static final int com_facebook_usersettingsfragment_connected_text_color=0x7f060001;
         public static final int com_facebook_usersettingsfragment_not_connected_text_color=0x7f060003;
+        public static final int gris=0x7f060005;
+        public static final int verde=0x7f060007;
+        public static final int verde_agua=0x7f060006;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -214,14 +217,15 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02001f;
         public static final int jooks_logo_header=0x7f020020;
         public static final int jooks_title=0x7f020021;
-        public static final int sample_0=0x7f020022;
-        public static final int sample_1=0x7f020023;
-        public static final int sample_2=0x7f020024;
-        public static final int sample_3=0x7f020025;
-        public static final int sample_4=0x7f020026;
-        public static final int sample_5=0x7f020027;
-        public static final int sample_6=0x7f020028;
-        public static final int sample_7=0x7f020029;
+        public static final int logo_splash=0x7f020022;
+        public static final int sample_0=0x7f020023;
+        public static final int sample_1=0x7f020024;
+        public static final int sample_2=0x7f020025;
+        public static final int sample_3=0x7f020026;
+        public static final int sample_4=0x7f020027;
+        public static final int sample_5=0x7f020028;
+        public static final int sample_6=0x7f020029;
+        public static final int sample_7=0x7f02002a;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f040005;
