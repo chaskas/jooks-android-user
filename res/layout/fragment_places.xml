@@ -8,6 +8,6 @@
     android:columnWidth="150dp"
     android:stretchMode="columnWidth"
     android:verticalSpacing="5dp" 
-    android:background="@color/gris"
+    android:background="#ffffff"
     android:padding="5dp"/>
 

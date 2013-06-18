@@ -3,5 +3,13 @@
     <color name="gris">#20211F</color>
     <color name="verde_agua">#BDD684</color>
     <color name="verde">#9BBA1A</color>
+    
+    <color name="actionbar_bg">#d9443f</color>
+    <color name="middlebar_bg">#333333</color>
+    <color name="background">#ffffff</color>
+    <color name="splashscreen_bg">#d9443f</color>
+    <color name="middlebar_textcolor">#ffffff</color>
+    
+    <color name="pressed_jooks">#CCFF4444</color>
 
 </resources>

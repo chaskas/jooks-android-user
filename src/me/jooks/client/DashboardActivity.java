@@ -39,19 +39,19 @@ public class DashboardActivity extends FragmentActivity implements ActionBar.Tab
 
         actionBar.setHomeButtonEnabled(false);
 
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mAppSectionsPagerAdapter);
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                //actionBar.setSelectedNavigationItem(position);
+                actionBar.setSelectedNavigationItem(position);
             }
         });
         
-        //actionBar.addTab(actionBar.newTab().setText("Locales").setTabListener(this));
-        //actionBar.addTab(actionBar.newTab().setText("Amigos").setTabListener(this));
+        actionBar.addTab(actionBar.newTab().setText("Locales").setTabListener(this));
+        actionBar.addTab(actionBar.newTab().setText("Amigos").setTabListener(this));
         
 	}
 
